@@ -10,7 +10,7 @@ import pickle
 
 def mcb(features1, features2, d:int=16000, save=False, filename="mcb_feature.pickle"):
     """
-    tranform two vectors of samples to one, using Multimodal Compact Bilinear Pooling
+    tranform two vectors of samples to one, using MCB
 
     argument: 
         - features1 : ndarray
