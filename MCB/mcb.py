@@ -64,11 +64,12 @@ def mcb(features1, features2, d:int=16000, save=False, filename="mcb_feature.pic
 
     # TODO : add element-wise sqrt and l2 normalization
 
-    try:
-        with open(filename, "wb") as fout:
-            pickle.dump(mcb_features, fout)
-    except Exception as e:
-        raise e
+    if save:
+        try:
+            with open(filename, "wb") as fout:
+                pickle.dump(mcb_features, fout)
+        except Exception as e:
+            raise e
 
     return mcb_features
 
