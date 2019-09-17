@@ -36,7 +36,7 @@ def mcb(features1, features2, d:int=16000, save=False, filename="mcb_feature.pic
         _raise_sample_size_exception()
     
     # count sketch
-    h, s = _count_sketch_init([features1.shape[1], features2[1]], d)
+    h, s = _count_sketch_init([features1.shape[1], features2.shape[1]], d)
 
     sketch_features1 = []
     sketch_features2 = []
@@ -121,8 +121,8 @@ def _count_sketch_init(feature_dims, d):
     s = [None, None]
 
     for vec_num in range(2): # NOTE: we are only thinking about two modalities
-        h[vec_num] = np.random.randint(0, d-1, size=(feature_dims[vec_num]))
-        s[vec_num] = (np.floor(np.random.uniform(0, 2, size=(feature_dims[vec_num]))) * 2 - 1).astype("int64")
+        h[vec_num] = np.random.randint(0, d-1, size=(feature_dims[vec_num], ))
+        s[vec_num] = (np.floor(np.random.uniform(0, 2, size=(feature_dims[vec_num], ))) * 2 - 1).astype("int64")
 
     return h, s
 
